@@ -22,15 +22,15 @@ async function fetchAllArticles() {
         const response  = await fetch(apiUrl);
 
         if (!response.ok) throw new Error('Failed to fetch blog directory listing');
-        const files = await response.json();
 
-        const mdFiles = files
-            .filter (file => file.name.endsWith('.md'))
-            .map    (file => file.name.replace(/\.md$/, ''));
+        const files     = await response.json();
+        const mdFiles   = files.filter(file => file.name.endsWith('.md'));
 
-        const promises = mdFiles.map(async (id) => {
-            const res = await fetch(`src/blog/${id}.md`);
-            if (!res.ok) throw new Error(`Could not load src/blog/${id}.md`);
+        const promises = mdFiles.map(async (file) => {
+            const id    = file.name.replace(/\.md$/, '');
+            const res   = await fetch(file.download_url);
+
+            if (!res.ok) throw new Error(`Could not load ${file.name}`);
 
             const rawText          = await res.text();
             const {metadata, body} = parseMarkdown(rawText);

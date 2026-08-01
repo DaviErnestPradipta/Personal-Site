@@ -63,7 +63,7 @@ body {
 .section {
     max-width   : 800px;
     margin      : 0 auto;
-    padding     : 0.25rem;
+    padding     : 0.25rem 1rem;
 }
 
 .section h2 {margin-bottom: 0.5rem}
