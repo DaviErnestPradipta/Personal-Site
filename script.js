@@ -88,7 +88,7 @@ async function initBlogReaderPage() {
     blogList.innerHTML = articles.map(a => `<li data-id="${a.id}">${a.title}</li>`).join('');
 
     const displayArticle = (article) => {
-        document.querySelectorAll('#blog-list li').forEach(li => {li.classList.toggle('active', parseInt(li.dataset.id) === article.id)});
+        document.querySelectorAll('#blog-list li').forEach(li => {li.classList.toggle('active', li.dataset.id === article.id)});
 
         contentDiv.innerHTML = `
             <div class="article-date">${article.date}</div>
@@ -99,7 +99,7 @@ async function initBlogReaderPage() {
 
     blogList.addEventListener('click', (e) => {
         if (e.target.tagName === 'LI') {
-            const id    = parseInt(e.target.dataset.id);
+            const id    = e.target.dataset.id;
             const found = articles.find(a => a.id === id);
 
             if (found) displayArticle(found);
@@ -107,7 +107,7 @@ async function initBlogReaderPage() {
     });
 
     const urlParams         = new URLSearchParams(window.location.search);
-    const initialId         = parseInt(urlParams.get('id'));
+    const initialId         = urlParams.get('id');
     const initialArticle    = articles.find(a => a.id === initialId) || articles[0];
     
     if (initialArticle) displayArticle(initialArticle);

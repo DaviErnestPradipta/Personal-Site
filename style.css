@@ -10,7 +10,7 @@
 [data-theme = "dark"] {
     --bg-color        : #323232;
     --text-color      : #ffffff;
-    --accent-color    : #c8c8fa;
+    --accent-color    : #96c8fa;
     --card-bg         : #323232;
     --border-color    : #ffffff;
 }
@@ -146,6 +146,11 @@ body {
 }
 
 .article-body li {margin-bottom: 0.25rem}
+
+.contact-link {
+    color           : inherit;
+    text-decoration : none;
+}
 
 footer {
     text-align  : center;
