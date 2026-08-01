@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <title>Blog - Davi Ernest Pradipta</title>
+        <link rel="icon" type="image/png" href="src/logo.png"/>
+        <link rel="stylesheet" href="style.css"/>
+    </head>
+    <body>
+        <header class="header-banner">
+            <div class="logo-wrapper">
+                <a href="index.html" class="logo">Davi Ernest Pradipta</a>
+                <button id="theme-toggle" aria-label="Toggle dark mode">⏾</button>
+            </div>
+        </header>
+        <main>
+            <section class="section">
+                <div class="blog-header"><a href="index.html" class="read-more-link">◀ Home</a></div>
+                <div id="blog-reader" class="blog-reader">
+                    <aside class="blog-sidebar"><ul id="blog-list" class="blog-list"></ul></aside>
+                    <article id="blog-content" class="blog-content"><div id="article-details">Select an article to read</div></article>
+                </div>
+            </section>
+        </main>
+        <footer>© 2026 Davi Ernest Pradipta</footer>
+        <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+        <script src="script.js"></script>
+    </body>
+</html>
